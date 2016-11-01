@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         myListView= (ListView)findViewById(R.id.listView);
-        myAdapter = new ArrayAdapter<WorkOut>(this,android.R.layout.simple_list_item_single_choice);
+       // myAdapter = new ArrayAdapter<WorkOut>(this,android.R.layout.simple_list_item_single_choice);
+        myAdapter = new WorkoutAdapter(this);
         myAdapter.add(new Squat(100, 4, 12));
         myAdapter.add(new PullUp(70, 4, 8));
         myListView.setAdapter(myAdapter);

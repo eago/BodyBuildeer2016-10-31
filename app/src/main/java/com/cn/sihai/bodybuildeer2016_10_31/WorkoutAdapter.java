@@ -23,19 +23,26 @@ public class WorkoutAdapter extends ArrayAdapter<WorkOut> {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View itemView = inflater.inflate(R.layout.item_row, parent, false);
 
-        WorkOut workOut = (WorkOut) getItem(position);
+        WorkOut workOut = getItem(position);
         TextView textView7 = (TextView) itemView.findViewById(R.id.textView7);
         TextView textView8 = (TextView) itemView.findViewById(R.id.textView8);
         TextView textView9 = (TextView) itemView.findViewById(R.id.textView9);
         TextView textView10 = (TextView) itemView.findViewById(R.id.textView10);
         TextView textView11 = (TextView) itemView.findViewById(R.id.textView11);
+        TextView textView13 = (TextView) itemView.findViewById(R.id.textView13);
+        TextView textView14 = (TextView) itemView.findViewById(R.id.textView14);
+        TextView textView15 = (TextView) itemView.findViewById(R.id.textView15);
 
-        assert workOut != null;
-        textView7.setText(workOut.getGroup());
+        //assert workOut != null;
+
         textView8.setText(workOut.getPosition());
         textView9.setText(workOut.getName());
-        textView10.setText(workOut.getWeight());
-        textView11.setText(workOut.addRepeat());
+        textView7.setText(Integer.toString(workOut.getGroup()));
+        textView10.setText(Integer.toString(workOut.getWeight()));
+        textView11.setText(Integer.toString(workOut.getRepeat()));
+        textView13.setText("Groupe");
+        textView14.setText("Weight");
+        textView15.setText("Repeat");
 
         return itemView;
     }
