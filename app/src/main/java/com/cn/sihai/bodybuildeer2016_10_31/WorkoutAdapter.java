@@ -40,7 +40,7 @@ public class WorkoutAdapter extends ArrayAdapter<WorkOut> {
         textView7.setText(Integer.toString(workOut.getGroup()));
         textView10.setText(Integer.toString(workOut.getWeight()));
         textView11.setText(Integer.toString(workOut.getRepeat()));
-        textView13.setText("Groupe");
+        textView13.setText("Group");
         textView14.setText("Weight");
         textView15.setText("Repeat");
 

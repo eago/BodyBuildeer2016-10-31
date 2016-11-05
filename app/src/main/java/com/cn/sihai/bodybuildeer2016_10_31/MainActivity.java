@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.R.layout.*;
+import android.widget.Toast;
 
 import buildWorkOut.PullUp;
 import buildWorkOut.Squat;
@@ -20,6 +21,7 @@ import buildWorkOut.WorkOut;
 public class MainActivity extends AppCompatActivity {
     ListView myListView;
     ArrayAdapter<WorkOut> myAdapter;
+    static final int WO_EDIT_REQUEST= 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getEditActivity(View view){
         Intent intentEdit = new Intent(this, EditActivity.class);
-        startActivity(intentEdit);
+        startActivityForResult(intentEdit,WO_EDIT_REQUEST);
     }
 
     @Override
@@ -71,4 +73,21 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        //Toast.makeText(this, "onActivityResult method is invoked", Toast.LENGTH_SHORT).show();
+        if (requestCode == WO_EDIT_REQUEST) {
+            //Toast.makeText(this, "the request was successful", Toast.LENGTH_SHORT).show();
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                //Toast.makeText(this, "ResultCode is OK", Toast.LENGTH_SHORT).show();
+                WorkOut wo = (WorkOut) data.getSerializableExtra(WorkOut.WO_DATA_KRY);
+                myAdapter.add(wo);
+                //Toast.makeText(this, "workout is created", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }
