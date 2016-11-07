@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.R.layout.*;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ListView myListView;
     ArrayAdapter<WorkOut> myAdapter;
     static final int WO_EDIT_REQUEST= 1;
+    public final static String EXTRA_timer = "TimerActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
         myAdapter.add(new Squat(100, 4, 12));
         myAdapter.add(new PullUp(70, 4, 8));
         myListView.setAdapter(myAdapter);
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                toTimer(position);
+            }
+        });
+
+
 
 
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -50,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
     public void getEditActivity(View view){
         Intent intentEdit = new Intent(this, EditActivity.class);
         startActivityForResult(intentEdit,WO_EDIT_REQUEST);
+    }
+
+    public  void toTimer(int position) {
+        WorkOut workout_Send = myAdapter.getItem(position);
+        Intent timerIntent = new Intent(this,TimerActivity.class);
+        timerIntent.putExtra(EXTRA_timer,workout_Send);
+        startActivity(timerIntent);
     }
 
     @Override
