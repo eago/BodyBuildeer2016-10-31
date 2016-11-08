@@ -3,6 +3,7 @@ package com.cn.sihai.bodybuildeer2016_10_31;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TextView;
@@ -54,8 +55,8 @@ public class TimerActivity extends AppCompatActivity {
         textView30 = (TextView)findViewById(R.id.TextView30);
         textView31 = (TextView)findViewById(R.id.TextView31);
         if (workOut != null) {
-            textView24.setText("Postion");
-            textView25.setText(workOut.getPosition());
+            textView24.setText(workOut.getPosition());
+            textView25.setText(workOut.getName());
             textView26.setText("Weight");
             textView27.setText(Integer.toString(workOut.getWeight()));
             textView28.setText("RM");
@@ -74,10 +75,73 @@ public class TimerActivity extends AppCompatActivity {
         button5 = (Button)findViewById(R.id.button5);
         button6 = (Button)findViewById(R.id.button6);
         button7 = (Button)findViewById(R.id.button7);
+        button2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                button2.setText("OK");
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                button3.setText("OK");
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                button4.setText("OK");
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                button5.setText("OK");
+            }
+        });
+
+        button6.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                button6.setText("OK");
+            }
+        });
+
+        button7.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                button7.setText("OK");
+            }
+        });
 
         stopButton = (Button) findViewById(R.id.stopButton);
-        backButton = (Button) findViewById(R.id.backButton);
+        stopButton.setText("start");
+        stopButton.setOnClickListener(new View.OnClickListener() {
 
-
+            @Override
+            public void onClick(View v) {
+                Button b = (Button) v;
+                if (b.getText().equals("stop")) {
+                    timerHandler.removeCallbacks(timerRunnable);
+                    b.setText("start");
+                } else {
+                    startTime = System.currentTimeMillis();
+                    timerHandler.postDelayed(timerRunnable, 0);
+                    b.setText("stop");
+                }
+            }
+        });
     }
+
+        //backButton = (Button) findViewById(R.id.backButton);
+
 }

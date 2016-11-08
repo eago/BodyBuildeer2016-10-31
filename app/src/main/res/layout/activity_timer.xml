@@ -15,6 +15,7 @@
             android:text="Position"
             android:ems="10"
             android:id="@+id/TextView24"
+            android:textSize="20dp"
             android:layout_weight="1" />
 
         <TextView
@@ -24,6 +25,7 @@
             android:text="Workout"
             android:ems="10"
             android:id="@+id/TextView25"
+            android:textSize="20dp"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -39,6 +41,7 @@
             android:text="Weight"
             android:ems="10"
             android:id="@+id/TextView26"
+            android:textSize="20dp"
             android:layout_weight="1" />
 
         <TextView
@@ -48,6 +51,7 @@
             android:text="Weight"
             android:ems="10"
             android:id="@+id/TextView27"
+            android:textSize="20dp"
             android:layout_weight="1" />
 
         <TextView
@@ -57,6 +61,7 @@
             android:text="RM"
             android:ems="10"
             android:id="@+id/TextView28"
+            android:textSize="20dp"
             android:layout_weight="1" />
 
         <TextView
@@ -66,6 +71,7 @@
             android:text="RM"
             android:ems="10"
             android:id="@+id/TextView29"
+            android:textSize="20dp"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -81,6 +87,7 @@
             android:text="Group"
             android:ems="10"
             android:id="@+id/TextView30"
+            android:textSize="20dp"
             android:layout_weight="1" />
 
         <TextView
@@ -90,9 +97,18 @@
             android:text="Group"
             android:ems="10"
             android:id="@+id/TextView31"
+            android:textSize="20dp"
             android:layout_weight="1" />
 
     </LinearLayout>
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:id="@+id/timerTextView"
+        android:textAlignment="center"
+        android:textSize="150dp"
+        android:layout_height="250dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -142,12 +158,6 @@
             android:layout_weight="1" />
 
     </LinearLayout>
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:id="@+id/timerTextView"
-        android:layout_height="250dp" />
 
     <LinearLayout
         android:orientation="horizontal"
