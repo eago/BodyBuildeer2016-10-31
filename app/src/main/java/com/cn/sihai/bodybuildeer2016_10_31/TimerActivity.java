@@ -1,6 +1,13 @@
 package com.cn.sihai.bodybuildeer2016_10_31;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.media.ToneGenerator;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +16,10 @@ import android.widget.TextView;
 import android.widget.TextView;
 import android.os.Handler;
 import android.widget.Toast;
+import android.media.Ringtone;
+import android.os.Vibrator;
+
+import java.io.IOException;
 
 import buildWorkOut.WorkOut;
 import buildWorkOut.WorkoutFactory;
@@ -31,12 +42,43 @@ public class TimerActivity extends AppCompatActivity {
             int seconds = (int) (millis / 1000);
             int minutes = seconds / 60;
             seconds = seconds % 60;
+            if(minutes == 1 && seconds == 30) {
+                Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
+                long[] pattern = {500, 500};
+                try {
+                    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                    r.play();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                vibrator.vibrate(pattern, 1);
+
+            }
 
             timerTextView.setText(String.format("%d:%02d", minutes, seconds));
 
             timerHandler.postDelayed(this, 500);
         }
     };
+
+    public void playSound(Context context) throws IllegalArgumentException,
+            SecurityException,
+            IllegalStateException,
+            IOException {
+
+        Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        MediaPlayer mMediaPlayer = new MediaPlayer();
+        mMediaPlayer.setDataSource(context, soundUri);
+        final AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+
+        if (audioManager.getStreamVolume(AudioManager.STREAM_ALARM) != 0) {
+            mMediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
+            mMediaPlayer.setLooping(true);
+            mMediaPlayer.prepare();
+            mMediaPlayer.start();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +99,11 @@ public class TimerActivity extends AppCompatActivity {
         if (workOut != null) {
             textView24.setText(workOut.getPosition());
             textView25.setText(workOut.getName());
-            textView26.setText("Weight");
+            textView26.setText(R.string.ticket_weight);
             textView27.setText(Integer.toString(workOut.getWeight()));
-            textView28.setText("RM");
+            textView28.setText(R.string.ticket_repeat);
             textView29.setText(Integer.toString(workOut.getRepeat()));
-            textView30.setText("Group");
+            textView30.setText(R.string.ticket_group);
             textView31.setText(Integer.toString(workOut.getGroup()));
         } else {
             Toast.makeText(this, "Workout is null",Toast.LENGTH_SHORT).show();
@@ -79,7 +121,7 @@ public class TimerActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                button2.setText("OK");
+                button2.setText(R.string.ticket_ok);
             }
         });
 
@@ -87,7 +129,7 @@ public class TimerActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                button3.setText("OK");
+                button3.setText(R.string.ticket_ok);
             }
         });
 
@@ -95,7 +137,7 @@ public class TimerActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                button4.setText("OK");
+                button4.setText(R.string.ticket_ok);
             }
         });
 
@@ -103,7 +145,7 @@ public class TimerActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                button5.setText("OK");
+                button5.setText(R.string.ticket_ok);
             }
         });
 
@@ -111,7 +153,7 @@ public class TimerActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                button6.setText("OK");
+                button6.setText(R.string.ticket_ok);
             }
         });
 
@@ -119,24 +161,24 @@ public class TimerActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                button7.setText("OK");
+                button7.setText(R.string.ticket_ok);
             }
         });
 
         stopButton = (Button) findViewById(R.id.stopButton);
-        stopButton.setText("start");
+        stopButton.setText(R.string.action_start);
         stopButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Button b = (Button) v;
-                if (b.getText().equals("stop")) {
+                if (b.getText().equals(R.string.action_stop)) {
                     timerHandler.removeCallbacks(timerRunnable);
-                    b.setText("start");
+                    b.setText(R.string.action_start);
                 } else {
                     startTime = System.currentTimeMillis();
                     timerHandler.postDelayed(timerRunnable, 0);
-                    b.setText("stop");
+                    b.setText(R.string.action_stop);
                 }
             }
         });

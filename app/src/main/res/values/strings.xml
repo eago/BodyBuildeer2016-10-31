@@ -2,4 +2,11 @@
     <string name="app_name">BodyBuildeer</string>
     <string name="action_settings">Settings</string>
     <string name="action_home">Home</string>
+    <string name="action_start">Start</string>
+    <string name="action_stop">Stop</string>
+    <string name="ticket_ok">OK</string>
+    <string name="ticket_group">Group</string>
+    <string name="ticket_weight">Weight(Kg)</string>
+    <string name="ticket_repeat">RM</string>
+    <string name="ticket_position">Home</string>
 </resources>

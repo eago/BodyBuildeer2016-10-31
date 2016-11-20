@@ -5,7 +5,9 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:background="@color/colorMizu"
+        android:paddingLeft="10dp"
         android:layout_height="50dp">
 
         <TextView
@@ -16,7 +18,8 @@
             android:ems="10"
             android:id="@+id/TextView24"
             android:textSize="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,13 +29,18 @@
             android:ems="10"
             android:id="@+id/TextView25"
             android:textSize="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textAlignment="center" />
+
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/colorMizu"
+        android:paddingLeft="10dp"
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,7 +50,8 @@
             android:ems="10"
             android:id="@+id/TextView26"
             android:textSize="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +61,16 @@
             android:ems="10"
             android:id="@+id/TextView27"
             android:textSize="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="@color/colorMizu"
+        android:paddingLeft="10dp"
+        android:layout_height="50dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,7 +80,8 @@
             android:ems="10"
             android:id="@+id/TextView28"
             android:textSize="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -72,13 +91,17 @@
             android:ems="10"
             android:id="@+id/TextView29"
             android:textSize="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textAlignment="center" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/colorMizu"
+        android:paddingLeft="10dp"
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,7 +111,8 @@
             android:ems="10"
             android:id="@+id/TextView30"
             android:textSize="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -98,7 +122,8 @@
             android:ems="10"
             android:id="@+id/TextView31"
             android:textSize="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textAlignment="center" />
 
     </LinearLayout>
 
@@ -107,12 +132,16 @@
         android:layout_width="match_parent"
         android:id="@+id/timerTextView"
         android:textAlignment="center"
+        android:paddingLeft="20dp"
         android:textSize="150dp"
-        android:layout_height="250dp" />
+        android:layout_height="222dp"
+        android:background="@color/colorChigusa"
+        android:textStyle="normal" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:background="@color/colorChigusa"
         android:layout_height="50dp">
 
         <Button
@@ -162,7 +191,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:background="@color/colorChigusa"
+        android:layout_height="50dp">
 
         <Button
             android:text="Stop"
